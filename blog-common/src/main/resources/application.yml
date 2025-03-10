@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://120.26.198.34:3306/blog?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true  # 数据库URL
+    name: root
+    password: 123456
+
+  mybatis-plus:
+    # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
+    mapper-locations: classpath:mapper/*.xml
+    # 以下配置均有默认值,可以不设置
+    configuration:
+      # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射
+      map-underscore-to-camel-case: true
+      # 如果查询结果中包含空值的列，则 MyBatis 在映射的时候，不会映射这个字段
+      # call-setters-on-nulls: true
+      # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImp
+
+
+server:
+  port: 50003
