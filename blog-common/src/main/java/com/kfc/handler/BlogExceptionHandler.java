@@ -24,15 +24,7 @@ public class BlogExceptionHandler extends ResponseEntityExceptionHandler {
         return Result.fail(e.getCode(), e.getMessage());
     }
 
-    /**
-     * 参数校验异常
-     */
-    @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public Result<?> handleValidationException(MethodArgumentNotValidException e) {
-        BindingResult bindingResult = e.getBindingResult();
-        List<String> errors = bindingResult.getFieldErrors().stream().map(fieldError -> fieldError.getField() + ":" + fieldError.getDefaultMessage()).collect(Collectors.toList());
-        return Result.fail(400, "参数校验失败", errors);
-    }
+
 
     /**
      * 权限异常
